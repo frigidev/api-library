@@ -11,14 +11,12 @@ import br.com.frigidev.library.repository.IBookRepository;
 @Service
 public class BookService {
 	@Autowired
-	IBookRepository bookRepository;
+	private IBookRepository bookRepository;
 	
-	//Create Book
 	public Book saveBook(Book book) {
 		return bookRepository.save(book);
 	}
 	
-	//Get All Books
 	public List<Book> getAllBooks() {
 		List<Book> books = bookRepository.findAll();
 		if(books != null)
@@ -27,7 +25,6 @@ public class BookService {
 		return null;
 	}
 	
-	//Get Book By Id
 	public Book getBookById(Integer id) {
 		Book book = bookRepository.findById(id).orElse(null);
 		if(book != null)
@@ -36,7 +33,6 @@ public class BookService {
 		return null;
 	}
 	
-	//Delete Book By Id
 	public boolean deleteBook(Integer id) {
 		boolean exists = bookRepository.findById(id).isPresent();
 		if(exists) {
@@ -46,7 +42,6 @@ public class BookService {
 		return false;
 	}
 	
-	//Delete All Books
 	public boolean deleteAllBooks() {
 		List<Book> books = bookRepository.findAll();
 		if(books != null) {
@@ -57,7 +52,6 @@ public class BookService {
 		return false;
 	}
 	
-	//Update Book By Id
 	public Book updateBook(Book book, Integer id) {
 		Book bookUpdated = bookRepository.findById(id).orElse(null);
 		if(book == bookUpdated) {

@@ -11,14 +11,12 @@ import br.com.frigidev.library.repository.ILoanRepository;
 @Service
 public class LoanService {
 	@Autowired
-	ILoanRepository loanRepository;
+	private ILoanRepository loanRepository;
 	
-	//Create Loan
 	public Loan saveLoan(Loan loan) {
 		return loanRepository.save(loan);
 	}
 	
-	//Get All Loans
 	public List<Loan> getAllLoans() {
 		List<Loan> loans = loanRepository.findAll();
 		if(loans != null)
@@ -27,7 +25,6 @@ public class LoanService {
 		return null;
 	}
 	
-	//Get Loan By Id
 	public Loan getLoanById(Integer id) {
 		Loan loan = loanRepository.findById(id).orElse(null);
 		if(loan != null)
@@ -36,7 +33,6 @@ public class LoanService {
 		return null;
 	}
 	
-	//Delete Loan By Id
 	public boolean deleteLoan(Integer id) {
 		boolean exists = loanRepository.findById(id).isPresent();
 		if(exists) {
@@ -46,7 +42,6 @@ public class LoanService {
 		return false;
 	}
 	
-	//Delete All Loans
 	public boolean deleteAllLoans() {
 		List<Loan> loans = loanRepository.findAll();
 		if(loans != null) {
@@ -57,7 +52,6 @@ public class LoanService {
 		return false;
 	}
 	
-	//Update Book By Id
 	public Loan updateLoan(Loan loan, Integer id) {
 		Loan loanUpdated = loanRepository.findById(id).orElse(null);
 		if(loan == loanUpdated) {

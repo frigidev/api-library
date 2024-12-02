@@ -22,7 +22,7 @@ import br.com.frigidev.library.service.LoanService;
 public class LoanController {
 
 	@Autowired
-	LoanService loanService;
+	private LoanService loanService;
 	
 	@PostMapping
 	public ResponseEntity<Loan> createLoan(@RequestBody Loan loan) {

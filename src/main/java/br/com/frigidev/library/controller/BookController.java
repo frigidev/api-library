@@ -22,7 +22,7 @@ import br.com.frigidev.library.service.BookService;
 public class BookController {
 
 	@Autowired
-	BookService bookService;
+	private BookService bookService;
 	
 	@PostMapping
 	public ResponseEntity<Book> createLoan(@RequestBody Book book) {

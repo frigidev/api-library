@@ -22,7 +22,7 @@ import br.com.frigidev.library.service.MemberService;
 public class MemberController {
 
 	@Autowired
-	MemberService memberService;
+	private MemberService memberService;
 	
 	@PostMapping
 	public ResponseEntity<Member> createMember(@RequestBody Member member) {

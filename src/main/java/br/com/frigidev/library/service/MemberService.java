@@ -11,14 +11,12 @@ import br.com.frigidev.library.repository.IMemberRepository;
 @Service
 public class MemberService {
 	@Autowired
-	IMemberRepository memberRepository;
+	private IMemberRepository memberRepository;
 	
-	//Create Member
 	public Member saveMember(Member member) {
 		return memberRepository.save(member);
 	}
 	
-	//Get All Members
 	public List<Member> getAllMembers() {
 		List<Member> members = memberRepository.findAll();
 		if(members != null)
@@ -27,7 +25,6 @@ public class MemberService {
 		return null;
 	}
 	
-	//Get Member By Id
 	public Member getMemberById(Integer id) {
 		Member member = memberRepository.findById(id).orElse(null);
 		if(member != null)
@@ -36,7 +33,6 @@ public class MemberService {
 		return null;
 	}
 	
-	//Delete Member By Id
 	public boolean deleteMember(Integer id) {
 		boolean exists = memberRepository.findById(id).isPresent();
 		if(exists) {
@@ -46,7 +42,6 @@ public class MemberService {
 		return false;
 	}
 	
-	//Delete All Members
 	public boolean deleteAllMembers() {
 		List<Member> members = memberRepository.findAll();
 		if(members != null) {
@@ -57,7 +52,6 @@ public class MemberService {
 		return false;
 	}
 	
-	//Update Member By Id
 	public Member updateMember(Member member, Integer id) {
 		Member memberUpdated = memberRepository.findById(id).orElse(null);
 		if(member == memberUpdated) {
