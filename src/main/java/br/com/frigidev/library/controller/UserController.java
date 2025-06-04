@@ -18,7 +18,6 @@ public class UserController {
 
     @GetMapping("/info")
     public User getUserDetails(){
-        
         // Recuperando o e-mail a partir do contexto de segurança
         String email = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         // Devolvendo os dados do usuario a partir do e-mail informado
